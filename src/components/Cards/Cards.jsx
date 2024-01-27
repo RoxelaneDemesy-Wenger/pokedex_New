@@ -1,14 +1,14 @@
-import Card from '../Card/Card';
+import Pokemon from '../Pokemon/Pokemon';
 
 function Cards() {
   return (
     <div className="card">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Pokemon />
+      <Pokemon />
+      <Pokemon />
+      <Pokemon />
+      <Pokemon />
+      <Pokemon />
     </div>
   );
 }

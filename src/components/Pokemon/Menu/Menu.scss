@@ -1,0 +1,16 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  height: auto;
+}
+
+.ui list menu{
+    margin-top: 0px;
+}
+
+.li {
+  border: 0.2px solid rgba(0,0,0,.05);
+  padding: 2px;
+  text-align: center;
+}
