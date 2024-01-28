@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { ListItem, List, Button } from 'semantic-ui-react';
+// import { useDispatch } from 'react-redux';
 import './Menu.scss';
 
 function Menu() {
   // Créer un état local pour suivre si le bouton a été cliqué ou non
   const [isContentVisible, setContentVisible] = useState(false);
 
+  // const dispatch = useDispatch(); // Dispatch Redux
   // Fonction pour basculer la visibilité du contenu
+
   const toggleContentVisibility = () => {
     setContentVisible(!isContentVisible);
     // par défaut on affiche pas le contenu de la liste pour ça !isContentVisible
+
+    // dispatch(scrollToList(maListeRef.current));
   };
 
   return (

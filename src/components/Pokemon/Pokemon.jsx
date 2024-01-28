@@ -16,15 +16,17 @@ function Pokemon() {
         <Image src="/public/451px-Braségali-RS.png" wrapped ui={false} />
         <CardContent>
           <CardHeader>
-            <span>Braségali</span>
-            <p className="number"> No. 0257</p>
+            <div className="cardHeader">
+              <span className="card_header_item">Braségali</span>
+              <span className="card_header_item"> No. 0257</span>
+            </div>
           </CardHeader>
           <CardMeta>
             <span className="type">Feu</span>
             <span className="type">Combat</span>
           </CardMeta>
           <CardDescription>
-            <span className="catégorie">Pokémon Ardent</span>
+            <p className="catégorie">Pokémon Ardent</p>
             <p className="region">Hoen</p>
           </CardDescription>
         </CardContent>
