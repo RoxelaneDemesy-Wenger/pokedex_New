@@ -6,9 +6,8 @@ import {
   CardDescription,
   CardContent,
   Card,
-  Icon,
   Image,
-  Button,
+  Menu,
 } from 'semantic-ui-react';
 
 function Pokemon() {
@@ -31,9 +30,7 @@ function Pokemon() {
           </CardDescription>
         </CardContent>
         <CardContent extra>
-          <Button>
-            <Icon name="plus" />
-          </Button>
+          <Menu />
         </CardContent>
       </Card>
     </div>

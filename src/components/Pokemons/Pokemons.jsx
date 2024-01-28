@@ -1,6 +1,6 @@
 import Pokemon from '../Pokemon/Pokemon';
 
-function Cards() {
+function Pokemons() {
   return (
     <div className="card">
       <Pokemon />
@@ -13,4 +13,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default Pokemons;

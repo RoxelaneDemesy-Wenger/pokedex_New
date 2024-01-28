@@ -1,9 +1,14 @@
-import { ListItem, List } from 'semantic-ui-react';
+import { ListItem, List, Button, Icon } from 'semantic-ui-react';
 import './Menu.scss';
 
 function Menu() {
   return (
     <List className="menu">
+      <ListItem className="li">
+        <Button>
+          <Icon name="plus" />
+        </Button>
+      </ListItem>
       <ListItem className="li">
         <p>taille: 1,9 m</p>
       </ListItem>
