@@ -1,14 +1,29 @@
-/* eslint-disable react/button-has-type */
+import { useState } from 'react';
 import { ListItem, List, Button } from 'semantic-ui-react';
 import './Menu.scss';
 
 function Menu() {
+  // Créer un état local pour suivre si le bouton a été cliqué ou non
+  const [isContentVisible, setContentVisible] = useState(false);
+
+  // Fonction pour basculer la visibilité du contenu
+  const toggleContentVisibility = () => {
+    setContentVisible(!isContentVisible);
+    // par défaut on affiche pas le contenu de la liste pour ça !isContentVisible
+  };
+
   return (
     <List className="menu">
       <ListItem className="li_btn_more">
-        <Button content="+" className="btn_more" />
+        {/* Utiliser onClick pour détecter le clic sur le bouton et appeler la fonction pour basculer la visibilité */}
+        <Button
+          content="+"
+          className="btn_more"
+          onClick={toggleContentVisibility}
+        />
       </ListItem>
-      <div className="li_content">
+      {/* Ajouter la classe hidden conditionnellement en fonction de l'état */}
+      <div className={`li_content ${isContentVisible ? '' : 'hidden'}`}>
         <ListItem className="li">
           <p>taille: 1,9 m</p>
         </ListItem>
