@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
+// import React from 'react';
 import {
   CardMeta,
   CardHeader,
@@ -7,8 +6,8 @@ import {
   CardContent,
   Card,
   Image,
-  Menu,
 } from 'semantic-ui-react';
+import Menu from './Menu/Menu';
 
 function Pokemon() {
   return (
@@ -29,9 +28,7 @@ function Pokemon() {
             <p className="region">Hoen</p>
           </CardDescription>
         </CardContent>
-        <CardContent extra>
-          <Menu />
-        </CardContent>
+        <Menu />
       </Card>
     </div>
   );
