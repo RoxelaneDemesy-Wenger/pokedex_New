@@ -3,7 +3,9 @@ import { ListItem, List, Button } from 'semantic-ui-react';
 // import { useDispatch } from 'react-redux';
 import './Menu.scss';
 
-function Menu() {
+function Menu({ pokemon }) {
+  const clonedPokemon = { ...pokemon };
+
   // Créer un état local pour suivre si le bouton a été cliqué ou non
   const [isContentVisible, setContentVisible] = useState(false);
 
@@ -30,13 +32,13 @@ function Menu() {
       {/* Ajouter la classe hidden conditionnellement en fonction de l'état */}
       <div className={`li_content ${isContentVisible ? '' : 'hidden'}`}>
         <ListItem className="li">
-          <p>taille: 1,9 m</p>
+          <p>taille: {clonedPokemon.height}</p>
         </ListItem>
         <ListItem className="li">
-          <p>poids: 52 kg</p>
+          <p>poids: {clonedPokemon.weight}</p>
         </ListItem>
         <ListItem className="li">
-          <p>taux de capture: 45</p>
+          <p>taux de capture: {clonedPokemon.catch_rate}</p>
         </ListItem>
         <ListItem className="li">
           <p>couleur: rouge</p>
@@ -45,10 +47,10 @@ function Menu() {
           <p>localisation: inconnu</p>
         </ListItem>
         <ListItem className="li">
-          <p>1ère forme: Poussifeu</p>
+          <p>1ère forme: {clonedPokemon.evolution?.pre[0]?.name}</p>
         </ListItem>
         <ListItem className="li">
-          <p>2ème forme: Galifeu</p>
+          <p>2ème forme: {clonedPokemon.evolution?.pre[1]?.name}</p>
         </ListItem>
         <ListItem className="li">
           <p>Méga-Evolution</p>

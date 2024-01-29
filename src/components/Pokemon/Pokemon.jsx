@@ -5,19 +5,37 @@ import {
   CardContent,
   Card,
   Image,
+  Button,
 } from 'semantic-ui-react';
 import Menu from './Menu/Menu';
 
 function Pokemon({ data }) {
+  console.log('Data transmise à Menu :', data);
+
+  const [currentSpriteIndex, setCurrentSpriteIndex] = useState(0);
+
+  const handleNextSprite = () => {
+    setCurrentSpriteIndex((prevIndex) => (prevIndex + 1) % data.sprites.length);
+  };
+
+  const handlePreviousSprite = () => {
+    setCurrentSpriteIndex((prevIndex) =>
+      prevIndex === 0 ? data.sprites.length - 1 : prevIndex - 1
+    );
+  };
   return (
     <div className="card">
       <Card>
-        <Image src={data.sprites.regular} wrapped ui={false} />
+        <Image
+          src={data.sprites[currentSpriteIndex].regular}
+          wrapped
+          ui={false}
+        />
         <CardContent>
           <CardHeader>
             <div className="cardHeader">
               <span className="card_header_item">{data.name.fr}</span>
-              <span className="card_header_item">No. {data.pokedexId}</span>
+              <span className="card_header_item"> No. {data.pokedexId}</span>
             </div>
           </CardHeader>
           <CardMeta>
@@ -28,11 +46,23 @@ function Pokemon({ data }) {
             ))}
           </CardMeta>
           <CardDescription>
-            <p className="category">{data.category}</p>
+            <p className="catégorie">{data.category}</p>
+            <p className="region">Hoen</p>
           </CardDescription>
         </CardContent>
-        <Menu />
+        <Menu pokemon={data} />
       </Card>
+      {/* Boutons de navigation du carrousel */}
+      <div className="carousel-navigation">
+        <Button icon="angle left" onClick={handlePreviousSprite} />
+        <Button icon="angle right" onClick={handleNextSprite} />
+      </div>
+      {/* Mini carrousel des sprites */}
+      <div className="mini-carousel">
+        {data.sprites.map((sprite, index) => (
+          <Image key={index} src={sprite.regular} size="tiny" />
+        ))}
+      </div>
     </div>
   );
 }
