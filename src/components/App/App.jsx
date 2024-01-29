@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './App.scss';
 import Pokemon from '../Pokemon/Pokemon';
 import Header from '../Header/Header';
@@ -5,11 +6,26 @@ import Header from '../Header/Header';
 // import Menu from '../Pokemon/Menu/Menu';
 
 function App() {
+  const [pokemonData, setPokemonData] = useState([]);
+
+  useEffect(() => {
+    console.log('dans le useEffect, Pokemon data:', pokemonData);
+    fetch('https://tyradex.vercel.app/api/v1/')
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemonData(data);
+      });
+  }, [pokemonData]);
+
+  console.log('Pokemon data:', pokemonData);
+
   return (
     <div className="container">
       <Header />
       {/* <Log /> */}
-      <Pokemon />
+      {pokemonData.map((pokemon) => (
+        <Pokemon key={pokemon.id} data={pokemon} />
+      ))}
     </div>
   );
 }

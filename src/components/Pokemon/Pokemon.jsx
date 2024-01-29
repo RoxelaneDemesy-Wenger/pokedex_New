@@ -1,4 +1,3 @@
-// import React from 'react';
 import {
   CardMeta,
   CardHeader,
@@ -9,25 +8,27 @@ import {
 } from 'semantic-ui-react';
 import Menu from './Menu/Menu';
 
-function Pokemon() {
+function Pokemon({ data }) {
   return (
     <div className="card">
       <Card>
-        <Image src="/public/451px-Braségali-RS.png" wrapped ui={false} />
+        <Image src={data.sprites.regular} wrapped ui={false} />
         <CardContent>
           <CardHeader>
             <div className="cardHeader">
-              <span className="card_header_item">Braségali</span>
-              <span className="card_header_item"> No. 0257</span>
+              <span className="card_header_item">{data.name.fr}</span>
+              <span className="card_header_item">No. {data.pokedexId}</span>
             </div>
           </CardHeader>
           <CardMeta>
-            <span className="type">Feu</span>
-            <span className="type">Combat</span>
+            {data.types.map((type) => (
+              <span className="type" key={type.name}>
+                {type.name}
+              </span>
+            ))}
           </CardMeta>
           <CardDescription>
-            <p className="catégorie">Pokémon Ardent</p>
-            <p className="region">Hoen</p>
+            <p className="category">{data.category}</p>
           </CardDescription>
         </CardContent>
         <Menu />
