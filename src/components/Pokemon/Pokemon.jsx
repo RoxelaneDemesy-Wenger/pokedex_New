@@ -25,6 +25,17 @@ function Pokemon({ data }) {
       prevIndex === 0 ? data.sprites.length - 1 : prevIndex - 1
     );
   };
+
+  // Vérifier si data.sprites est défini et contient des éléments
+  if (!data.sprites || data.sprites.length === 0) {
+    return <div>Aucun sprite disponible</div>;
+  }
+
+  // Vérifier si currentSpriteIndex est dans la plage valide des indices de data.sprites
+  if (currentSpriteIndex < 0 || currentSpriteIndex >= data.sprites.length) {
+    return <div>Index de sprite invalide</div>;
+  }
+
   return (
     <div className="card">
       <Card>
