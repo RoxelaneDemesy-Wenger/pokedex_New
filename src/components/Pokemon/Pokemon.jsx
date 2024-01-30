@@ -7,7 +7,9 @@ import {
   Image,
   Button,
 } from 'semantic-ui-react';
+import { useState } from 'react';
 import Menu from './Menu/Menu';
+import { v4 as uuidv4 } from 'uuid';
 
 function Pokemon({ data }) {
   console.log('Data transmise à Menu :', data);
@@ -41,13 +43,12 @@ function Pokemon({ data }) {
           <CardMeta>
             {data.types.map((type) => (
               <span className="type" key={type.name}>
-                {type.name}
+                {type.image} {type.name}
               </span>
             ))}
           </CardMeta>
           <CardDescription>
             <p className="catégorie">{data.category}</p>
-            <p className="region">Hoen</p>
           </CardDescription>
         </CardContent>
         <Menu pokemon={data} />
@@ -59,8 +60,8 @@ function Pokemon({ data }) {
       </div>
       {/* Mini carrousel des sprites */}
       <div className="mini-carousel">
-        {data.sprites.map((sprite, index) => (
-          <Image key={index} src={sprite.regular} size="tiny" />
+        {data.sprites.map((sprite) => (
+          <Image key={uuidv4()} src={sprite.regular} size="tiny" />
         ))}
       </div>
     </div>

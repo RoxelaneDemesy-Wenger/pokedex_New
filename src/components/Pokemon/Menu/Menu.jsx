@@ -41,10 +41,10 @@ function Menu({ pokemon }) {
           <p>taux de capture: {clonedPokemon.catch_rate}</p>
         </ListItem>
         <ListItem className="li">
-          <p>couleur: rouge</p>
+          <p>couleur: rouge CHANGER</p>
         </ListItem>
         <ListItem className="li">
-          <p>localisation: inconnu</p>
+          <p>localisation: inconnu CHANGER</p>
         </ListItem>
         <ListItem className="li">
           <p>1ère forme: {clonedPokemon.evolution?.pre[0]?.name}</p>
@@ -53,7 +53,7 @@ function Menu({ pokemon }) {
           <p>2ème forme: {clonedPokemon.evolution?.pre[1]?.name}</p>
         </ListItem>
         <ListItem className="li">
-          <p>Méga-Evolution</p>
+          <p>Méga-Evolution CHANGER</p>
         </ListItem>
       </div>
     </List>

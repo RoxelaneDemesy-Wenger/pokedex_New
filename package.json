@@ -20,6 +20,7 @@
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5",
     "toolkit": "^1.5.4",
+    "uuidv4": "^6.2.13",
     "vite": "^4.4.5"
   },
   "devDependencies": {
