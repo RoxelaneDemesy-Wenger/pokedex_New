@@ -8,8 +8,8 @@ import {
   Button,
 } from 'semantic-ui-react';
 import { useState } from 'react';
-import Menu from './Menu/Menu';
 import { v4 as uuidv4 } from 'uuid';
+import Menu from './Menu/Menu';
 
 function Pokemon({ data }) {
   console.log('Data transmise à Menu :', data);
@@ -39,11 +39,17 @@ function Pokemon({ data }) {
   return (
     <div className="card">
       <Card>
-        <Image
-          src={data.sprites[currentSpriteIndex].regular}
-          wrapped
-          ui={false}
-        />
+        {/* Image du carrousel de sprites ci dessous: */}
+        {/* Boutons de navigation du carrousel */}
+        <div className="carousel-navigation">
+          <Button icon="angle left" onClick={handlePreviousSprite} />
+          <Image
+            src={data.sprites[currentSpriteIndex]?.regular || 'URL_PAR_DEFAUT'}
+            wrapped
+            ui={false}
+          />
+          <Button icon="angle right" onClick={handleNextSprite} />
+        </div>
         <CardContent>
           <CardHeader>
             <div className="cardHeader">
@@ -64,16 +70,12 @@ function Pokemon({ data }) {
         </CardContent>
         <Menu pokemon={data} />
       </Card>
-      {/* Boutons de navigation du carrousel */}
-      <div className="carousel-navigation">
-        <Button icon="angle left" onClick={handlePreviousSprite} />
-        <Button icon="angle right" onClick={handleNextSprite} />
-      </div>
       {/* Mini carrousel des sprites */}
       <div className="mini-carousel">
-        {data.sprites.map((sprite) => (
-          <Image key={uuidv4()} src={sprite.regular} size="tiny" />
-        ))}
+        {Array.isArray(data.sprites) &&
+          data.sprites.map((sprite) => (
+            <Image key={uuidv4()} src={sprite.regular} size="tiny" />
+          ))}
       </div>
     </div>
   );
